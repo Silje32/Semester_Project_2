@@ -10,7 +10,7 @@ export default function createMenu()  {
                                 <a href="/" class="${pathname === "/" ? "active" : ""}">Home</a>
                                 <a href="products.html" class="${pathname === "/products.html" ? "active" : ""}">Products</a>
                                 <a href="login.html" class="${pathname === "/login.html" ? "active" : ""}">Login</a>
-                                <i class="fa fa-shopping-bag"></i>
+                                <a href="cart-basket.html" i class="fa fa-shopping-bag"></i></a>
                            </div>`; 
 
 }
