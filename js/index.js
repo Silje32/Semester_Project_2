@@ -19,21 +19,21 @@ const homeUrl = url + "home";
 // Make a GET request to fetch a list of resources from your API.
 
 (async function getBanner()  {
-    const Banner = document.querySelector(".image-container");
+    const heroBanner = document.querySelector(".image-container");
     
     try { 
         const response = await fetch(homeUrl);
         const banner = await response.json();
         console.log(banner);
 
-        const heroBanner = banner;
+        const imageBanner = banner;
 
         
         // Display a hero banner on the home page. 
         let html = "";
-            html = `<img src="photo-1544085311-11a028465b03.jpeg${heroBanner.name}" alt text="Bryggen i Bergen${heroBanner.hero_banner_alt_text}">`;
+            html = `"${imageBanner.hero_banner.name}"  alt text="${imageBanner.hero_banner_alt_text}">`;
              
-        Banner.innerHTML = html;
+        heroBanner.innerHTML = html;
      
      }
 
