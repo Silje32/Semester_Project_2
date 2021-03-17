@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Semester Project 2</title>
+        <title>Login</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,10 +17,17 @@
         <div class="menu-container"></div>
     </header>
             <h1>LOG IN</h1>
-                 <div class="container">
-                     <form>
-                         <p>* Your username must be a minimum of 7 characters.</p>
-                         <textarea placeholder="Username:"></textarea>
+                 <main class="container">
+                     <form id="logInForm">
+                         <div>
+                            <p>* Your username must be a minimum of 7 characters.</p>
+                            <input name="Username:" placeholder="Username" />
+                         </div>
+
+                         <div>
+                            <input name="Email:" id="email" placeholder="Email" />
+                            <div class="form-error" id="emailError">Please enter a valid email address</div> 
+                         </div>
 
                          <div class="character-count">Character count: <span>0</span></div>
 
@@ -29,9 +36,9 @@
                          </div>
 
                      </form>
-                 </div>
-        <script src="js/login.js" type="module"></script> 
-        <script src="js/index.js" type="module"></script>
-    <footer></footer>
+                 </main>
+                 <script src="js/login.js" type="module"></script> 
+                 <script src="js/index.js" type="module"></script>
+        <footer></footer>
     </body>
 </html>
