@@ -4,14 +4,14 @@ createMenu();
 
 // Log in to get to the admin pages.
 
-const username = document.querySelector("input");
+const password = document.querySelector("#password");
 const characterCount = document.querySelector(".character-count span");
 const submitButton = document.querySelector("button[type='submit']");
 const form = document.querySelector("#logInForm");
 const email = document.querySelector("#email");
 const emailError = document.querySelector("#emailError");
 
-username.onkeyup = function (event) {
+password.onkeyup = function (event) {
 
     console.log(event.target.value.length);
 
