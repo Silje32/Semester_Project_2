@@ -1,8 +1,12 @@
+import { url }  from "./api.js"; 
+import { saveUser, saveToken }  from "./storage.js"; 
 import createMenu from "./createMenu.js";
 
 createMenu();
 
+
 // Log in to get to the admin pages.
+// Create an admin login form that allows administrator users to login.
 
 const password = document.querySelector("#password");
 const characterCount = document.querySelector(".character-count span");
@@ -10,6 +14,7 @@ const submitButton = document.querySelector("button[type='submit']");
 const form = document.querySelector("#logInForm");
 const email = document.querySelector("#email");
 const emailError = document.querySelector("#emailError");
+
 
 password.onkeyup = function (event) {
 
@@ -37,8 +42,15 @@ function validateEmail(email)  {
 }
 
 
+
+form.addEventListener("submit", validateForm);
+
+
 function validateForm(event)  {
     event.preventDefault();
+
+    const userValue = email.value.trim();
+    const passwordValue = password.value.trim();
 
     if (validateEmail(email.value) === true) {
         emailError.style.display = "none";
@@ -46,17 +58,45 @@ function validateForm(event)  {
         emailError.style.display = "block";
     }
 
+    doLogin(userValue, passwordValue);
 }
-form.addEventListener("submit", validateForm);
 
 
 
-form.onsubmit = function (event)  {
 
-    event.preventDefault();
+async function doLogin(username, password) {
 
-    console.log(event);
+   const logInUrl = url + "auth/local";
+   const data = JSON.stringify({ identifier: username, password: password });
+
+   const options = {
+      method: "POST",
+      body: data, 
+      headers: {
+          "Content-Type": "application/json", 
+      },
+
+   };
+
+   try {
+       const response = await fetch(logInUrl, options);
+       const json = await response.json();
+       console.log(json);
+
+       if (json.user) {
+           saveToken(json.jwt);
+           saveUser(json.user);
+
+           location.href = "/";
+       }
+
+   } catch (error) {
+       console.log(error);
+
+   }
+
 
 }
+
 
 
