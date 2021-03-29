@@ -12,14 +12,15 @@ export default function createMenu()  {
     let authLink =  `<a href="login.html" class="${pathname === "/login.html" ? "active" : ""}">Login</a>`
 
     if (username) {
-        authLink = `<span>Hi ${username}</span>`;
+        authLink =  `<a href="add.html" class="${pathname === "/add.html" ? "active" : ""}">Add product</a>
+                    <span>Hi ${username}</span>`;
     }
 
 
     const container = document.querySelector(".menu-container");
 
     container.innerHTML = `<div class="menu">
-                                <a href="/" class="${pathname === "/" ? "active" : ""}">Home</a>
+                                <a href="/" class="${pathname === "/" || pathname === "/index.html" ? "active" : ""}">Home</a>
                                 <a href="products.html" class="${pathname === "/products.html" ? "active" : ""}">Products</a>
                                 ${authLink}
                                 <a href="cart-basket.html" i class="fa fa-shopping-bag"></i></a>
