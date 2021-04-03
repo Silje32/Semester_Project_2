@@ -1,5 +1,6 @@
 import { url } from "./api.js"; 
 import createMenu from "./createMenu.js";
+import deleteButton from "./deleteButton.js";
 import { getToken }  from "./storage.js"; 
 
 createMenu();
@@ -33,6 +34,8 @@ const idInput = document.querySelector("#id");
         price.value = details.price;
         description.value = details.description;
         idInput.value = details.id;
+
+        deleteButton(details.id);
     }
     catch(error) {
         console.log(error)
