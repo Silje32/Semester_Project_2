@@ -90,7 +90,7 @@ async function updateProduct(title, price, description, id) {
         console.log(json);
     } 
     catch(error) {
-        console.log(error)
+        console.log(error);
     }
 
 
